@@ -1,0 +1,7 @@
+<div class="container mt-5">
+    <div><ng-icon name="bootstrapCheckCircle" class="text-5xl"></ng-icon></div>
+    <h2>Thank you.  Your order is confirmed</h2>
+    <p class="mb-4">Your order has not shipped yet, but this is to be expected as we are not a real store</p>
+    <button *ngIf="order" routerLink="/orders/{{order.id}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View your order</button>
+    <button *ngIf="!order" routerLink="/orders" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">View your orders</button>
+</div>

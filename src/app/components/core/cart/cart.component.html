@@ -1,0 +1,36 @@
+<div class="grid grid-cols-2 gap-4 m-4">
+    <!-- (((((((((((((((start list))))))))))))))) -->
+    <div class="col-span-1">
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <app-basket-summary (decrement)="decrementItemQuantity($event)" (increment)="incrementItemQuantity($event)"
+                (remove)="removeBasketItem($event)" *ngIf="basket$ | async as basketData"
+                [items]="basketData.items"></app-basket-summary>
+        </div>
+    </div>
+    <!-- (((((((((((((((end list))))))))))))))) -->
+    <div class="col-span-1 grid justify-center">
+        <!-- (((((((((((((((start total))))))))))))))) -->
+        <div class="mb-3">
+            <div *ngIf="(basket$ | async ) === null">
+                <p>There are no items in your basket</p>
+            </div>
+        
+            <div *ngIf="basket$ | async">
+                <app-order-totals *ngIf="(basketTotals$ | async)" [shippingPrice]="(basketTotals$ | async)?.shipping"
+                    [subtotal]="(basketTotals$ | async)?.subtotal" [total]="(basketTotals$ | async)?.total">
+        
+                    
+
+                    
+                </app-order-totals>
+        
+        
+            </div>
+        </div>
+
+
+        <!-- (((((((((((((((end total))))))))))))))) -->
+
+    </div>
+</div>

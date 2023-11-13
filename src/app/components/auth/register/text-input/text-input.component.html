@@ -1,0 +1,16 @@
+<div class="grid md:w-[700px]">
+    <!-- <div *ngIf="controlDir?.control?.status === 'PENDING'" ></div> -->
+    <label [for]="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{label}}</label>
+    <input class="rounded-lg md:w-[700px]" [dir]="'ltr'" [ngClass]="{
+        'is-invalid': controlDir.control?.touched && !controlDir.control?.valid,
+        'is-valid': controlDir.control?.touched && controlDir.control?.valid
+      }" [type]="type" (input)="onChange(input.value)" (blur)="onTouched()" #input [placeholder]="label">
+
+    <div *ngIf="controlHasErrors() && controlDir?.control?.touched">
+
+        <span class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" *ngIf="controlDir.control?.hasError('required')">{{label}} is
+            required</span>
+        <span class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"  *ngIf="controlDir.control?.hasError('pattern')">Invalid email address</span>
+        <span  class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" *ngIf="controlDir.control?.hasError('emailExists')">Email address is in use</span>
+    </div>
+</div>

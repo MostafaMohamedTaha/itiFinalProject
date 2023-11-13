@@ -1,0 +1,93 @@
+{
+    "dir": "ltr",
+    "navbar": {
+        "name":"Family Cool",
+        "home": "Home Page",
+        "products": "The Products",
+        "contacts": "Contact Us",
+        "prices": "Prices",
+        "offers": "Offers",
+        "premium": "Premium Account",
+        "register": "Sign Up",
+        "sign in": "Sign In",
+        "signOut": "Sign Out"
+    },
+    "sidebar": {
+        "home": "Home Page",
+        "products": "The Products",
+        "contacts": "Contact Us",
+        "prices": "Prices",
+        "offers": "Offers",
+        "premium": "Premium Account",
+        "sign in": "Sign In",
+        "register": "Sign Up",
+        "sign out": "Sign Out"
+    },
+    "footer": {
+        "name":"Family Cool",
+        "contacts": "Contact Us",
+        "location": "Location",
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "resources": "Resources",
+        "follow": "Follow",
+        "rights": "All Rights Reserved"
+    },
+    "products":{
+        "brand":"Choose Your Brand",
+        "type":"Choose Your Type",
+        "alpha":"Sort By Name",
+        "show":"Show",
+        "of":"Of",
+        "result":"Result",
+        "search":"Search",
+        "reset":"Reset"
+
+    },
+    "prices":{
+        "product":"Product",
+        "quantity":"Quantity",
+        "price":"Price",
+        "action":"action",
+        "remove":"remove",
+        "submit":"submit",
+        "total":"Total Price"
+    },
+    "user1":{
+        "header":"Nice Meeting",
+        "content":"I am generally satisfied with their purchases. Reviewers satisfied with Family Call most frequently mention customer service, free shipping, and prime member. Family Call ranks 5th among Marketplace sites.",
+        "name":"Sara Ibrahim",
+        "rate":"very good experience"
+    },
+    "user2":{
+        "header":"best price ",
+        "content":"I find my overall shopping experience with them to be quite pleasing. Those who are content with their shopping experience at Family Call often highlight their excellent customer service, complimentary shipping, and the perks of being a prime member. In the realm of online marketplaces, Family Call secures the 5th position when it comes to customer satisfaction.",
+        "name":"mona mohamed",
+        "rate":"Excellent experience"
+    },
+    "user3":{
+        "header":"excellent service",
+        "content":"I find their products to be generally satisfactory. Among the reviewers who have had a positive experience with Family Call, the most common mentions are their excellent customer service, the benefit of free shipping, and the advantages of being a prime member. When it comes to online marketplaces, Family Call has earned a respectable 5th place in terms of customer satisfaction",
+        "name":"Ahmed Mohamed",
+        "rate":"good job"
+    },
+    "user4":{
+        "header":"fast delivery",
+        "content":"I find my shopping experience with them quite satisfactory. Those who have had positive experiences with Family Call often highlight their excellent customer service, the convenience of free shipping, and the advantages of being a prime member. It's worth noting that Family Call holds a strong 5th position among online marketplace platforms in terms of customer satisfaction.",
+        "name":"Mostafa Ahmed",
+        "rate":"wonderful experience"
+    },
+    "contact":{
+        "home":"Family Cool",
+        "location":"location",
+        "locationDetail":"",
+        "phone":"Phone",
+        "phone1":"+201210264075",
+        "phone2":"+201026026135"
+    },
+    "sign":{
+        "displayName":"enter your name",
+        "email":"Enter Your Email",
+        "password":"Password"
+    }
+}

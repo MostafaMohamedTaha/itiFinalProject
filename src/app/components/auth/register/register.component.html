@@ -1,0 +1,19 @@
+<div class="grid justify-center my-[80px]">
+
+    <div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <app-text-input  formControlName="displayName" [label]="'Display Name'"></app-text-input>
+            <app-text-input  formControlName="email" [label]="'Email address'"></app-text-input>
+            <app-text-input  formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+
+            <ul *ngIf="errors">
+                <li *ngFor="let error of errors">
+                    {{error}}
+                </li>
+            </ul>
+
+            <button type="submit" class="w-full my-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{'navbar.register' | translate}}</button>
+        </form>
+    </div>
+</div>

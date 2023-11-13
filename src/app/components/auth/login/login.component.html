@@ -1,0 +1,15 @@
+<div class="grid justify-center my-[100px]">
+
+    <form class="md:w-[700px]" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'sign.email' | translate}}</label>
+        <input [dir]="'ltr'" type="email" formControlName="email" class="rounded-lg md:w-[700px]" placeholder=" " required />
+
+
+        <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'sign.password' | translate}}</label>
+        <input [dir]="'ltr'" type="password" formControlName="password" id="password" class="rounded-lg md:w-[700px] my-2"
+            placeholder=" " required />
+
+        <button type="submit"
+            class="w-full my-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{'navbar.sign in' | translate}}</button>
+    </form>
+</div>
