@@ -19,8 +19,15 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/home';
-    this.createLoginForm();
+    this.accountService.loadStoredUser().subscribe(
+      () => {
+        this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/products';
+        this.createLoginForm();
+      },
+      error => {
+        console.error('Error loading stored user:', error);
+      }
+    );
   }
 
   createLoginForm(): void {

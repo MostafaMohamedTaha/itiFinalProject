@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { IOrder } from '../../../models/order';
+import { BasketService } from 'src/app/components/services/backet.service';
 
 @Component({
   selector: 'app-checkout-success',
@@ -10,7 +11,7 @@ import { IOrder } from '../../../models/order';
 export class CheckoutSuccessComponent implements OnInit {
   order: IOrder | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private backetService:BasketService) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation && navigation.extras && navigation.extras.state;
     if (state) {
@@ -20,5 +21,9 @@ export class CheckoutSuccessComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+   handleSuccessfulPayment1(createdOrder: any) {
+    this.backetService.deleteLocalBasket(createdOrder.basketId);
+    const navigationExtras: NavigationExtras = { state: createdOrder };
+    this.router.navigate(['products'], navigationExtras);
+  }
 }

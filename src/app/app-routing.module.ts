@@ -13,6 +13,7 @@ import { ProductItemComponent } from './components/core/department/product-item/
 import { OrdersComponent } from './components/core/orders/orders.component';
 import { CheckoutComponent } from './components/core/checkout/checkout.component';
 import { CheckoutSuccessComponent } from './components/core/checkout/checkout-success/checkout-success.component';
+import { LocationComponent } from './components/core/contact/location/location.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'location', component: LocationComponent },
   { path: '**', component: NotFoundError },
 ];
 

@@ -23,7 +23,16 @@ export class AccountService {
   //#endregion
   
   //#region  user service
-
+  loadStoredUser(): Observable<IUser | null> {
+    const storedToken = localStorage.getItem('token');
+  
+    if (!storedToken) {
+      this.currentUserSource.next(null);
+      return of(null);
+    }
+  
+    return this.loadCurrentUser(storedToken);
+  }
   loadCurrentUser(token: string): Observable<IUser | null> {
     if (!token) {
       this.currentUserSource.next(null);

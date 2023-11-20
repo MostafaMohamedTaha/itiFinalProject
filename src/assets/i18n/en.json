@@ -5,7 +5,7 @@
         "home": "Home Page",
         "products": "The Products",
         "contacts": "Contact Us",
-        "prices": "Prices",
+        "prices": "Basket",
         "offers": "Offers",
         "premium": "Premium Account",
         "register": "Sign Up",
@@ -80,7 +80,7 @@
     "contact":{
         "home":"Family Cool",
         "location":"location",
-        "locationDetail":"",
+        "locationDetail":"31 The Future St - Al Bashaer,Giza Egypt",
         "phone":"Phone",
         "phone1":"+201210264075",
         "phone2":"+201026026135"

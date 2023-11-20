@@ -6,7 +6,7 @@ import { BasketService } from '../../../services/backet.service'; // Corrected t
 import { CheckoutService } from '../../../services/checkout.service';
 import { IBasket } from '../../../models/basket';
 import { loadStripe, StripeElements } from '@stripe/stripe-js'; // Removed unused import
-import { lastValueFrom } from 'rxjs';
+import { from, lastValueFrom } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-checkout-payment',
@@ -65,13 +65,16 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
   //#region  after child view inherit |destroy
 
   ngAfterViewInit(): void {
-    this.initializeStripe();
-    setTimeout(() => {
-    this.setupCardElement('cardNumber', this.cardNumberElement.nativeElement);
-    this.setupCardElement('cardExpiry', this.cardExpiryElement.nativeElement);
-    this.setupCardElement('cardCvc', this.cardCvcElement.nativeElement);
-  },2000)
-}
+    // this.initializeStripe();
+    from(this.initializeStripe()).subscribe(() => {
+
+      this.setupCardElement('cardNumber', this.cardNumberElement.nativeElement);
+      this.setupCardElement('cardExpiry', this.cardExpiryElement.nativeElement);
+      this.setupCardElement('cardCvc', this.cardCvcElement.nativeElement);
+    }
+    )
+  }
+
 
   ngOnDestroy(): void {
     this.destroyCardElements();
@@ -81,7 +84,7 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
   //#region  initial stripe key |load | array elements
 
   private async initializeStripe() {
-    const stripePublicKey = 'pk_test_51OAtNgKjIrDgg9BWZKuLYtXyhQ4sfk6r9sOd9Y8mnZ8eKUHATGg04eubfam9YW7FbeNCAwlBQs76POwL9XfqtZPt00fz5qw5hS';
+    const stripePublicKey = 'pk_test_51O9quwCSzN2kyYKQV60CJQz4P3YMKgFLSWEWuEPGcM0A8ZVo57jmvrubPEkE1oFUIbmMNCtV4sQlwVfgNofU5tZG00HbonVILn';
 
     try {
       this.stripe = await loadStripe(stripePublicKey);
@@ -174,9 +177,11 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
       const basket = this.backetService.getCurrentBasketValue();
       if (basket) {
         const createdOrder = await this.createOrder(basket);
-        const paymentResult = await this.confirmPaymentWithStripe(basket, this.getCardName());
+        // const paymentResult = await this.confirmPaymentWithStripe(basket, this.getCardName());
 
-        this.handlePaymentResult(paymentResult, createdOrder);
+        // this.handlePaymentResult(paymentResult, createdOrder);
+        const navigationExtras: NavigationExtras = { state: createdOrder };
+        this.router.navigate(['checkoutSucceed'], navigationExtras);
       }
     } catch (error) {
       this.handleErrorDuringPayment();
@@ -197,6 +202,7 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
   //#region  confirm payment
 
   private async confirmPaymentWithStripe(basket: IBasket, nameOnCard: string) {
+    
     try {
       const result = await this.stripe.confirmCardPayment(basket.clientSecret, {
         payment_method: {
@@ -254,12 +260,12 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
   }
 
   private handleFailedPayment(paymentIntent: any) {
-    this.toastr.error(paymentIntent);
+    // this.toastr.error(paymentIntent);
   }
 
   private handleErrorDuringPayment() {
     console.error('An error occurred during the payment process.');
-    this.toastr.error('An error occurred during the payment process.');
+    // this.toastr.error('An error occurred during the payment process.');
   }
   //#endregion
 }

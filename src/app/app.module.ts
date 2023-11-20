@@ -81,6 +81,7 @@ import { RouterModule } from '@angular/router';
 import { OrderDetailedComponent } from './components/core/orders/order-detailed/order-detailed.component';
 import { cssSpinnerTwo } from '@ng-icons/css.gg';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LocationComponent } from './components/core/contact/location/location.component';
 //#endregion
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OrdersComponent,
     OrderDetailedComponent,
     StepperComponent,
+    LocationComponent,
   ],
   imports: [
     //#region  default
