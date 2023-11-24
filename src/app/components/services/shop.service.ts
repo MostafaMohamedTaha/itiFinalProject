@@ -32,7 +32,7 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
   //#endregion
-  
+
   //#region  params build
   public buildHttpParams(): HttpParams {
     let params = new HttpParams();
@@ -64,7 +64,7 @@ export class ShopService {
     return this.shopParams;
   }
   //#endregion
-  
+
   //#region  get product
 
   getProducts(useCache: boolean): Observable<IPagination> {
@@ -108,7 +108,25 @@ export class ShopService {
     );
   }
   //#endregion
-  
+
+  getProductQuantityById(id: number): Observable<IProduct> {
+    const url = `${this.baseUrl}Products/quantity?id=${id}`;
+
+    return this.http.get<IProduct>(url).pipe(
+      map(response => {
+        console.log("r"+ response)
+        return response;
+      }),
+      catchError(error => {
+        console.error('Error getting product quantity:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+
+
+
   //#region  get brand
 
   getBrands() {

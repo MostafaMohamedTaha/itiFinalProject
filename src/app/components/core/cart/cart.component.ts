@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 
   basket$!: Observable<IBasket | null>;
   basketTotals$!: Observable<IBasketTotals | null>;
+  quantity!: Observable<IBasketTotals | null>;
   //#endregion
 
   //#region  ctor | init

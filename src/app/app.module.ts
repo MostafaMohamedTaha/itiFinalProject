@@ -41,7 +41,7 @@ import { CheckoutSuccessComponent } from './components/core/checkout/checkout-su
 
 //#region  icons
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapCartCheckFill, bootstrapSunFill, bootstrapMoonStarsFill, bootstrapList, bootstrapTrash3Fill, bootstrapArrowLeftCircleFill, bootstrapArrowRightCircleFill, bootstrapCheckCircle, bootstrapCart3 } from '@ng-icons/bootstrap-icons';
+import { bootstrapCartCheckFill, bootstrapSunFill, bootstrapMoonStarsFill, bootstrapList, bootstrapTrash3Fill, bootstrapArrowLeftCircleFill, bootstrapArrowRightCircleFill, bootstrapCheckCircle, bootstrapCart3, bootstrapNodeMinusFill, bootstrapNodePlusFill } from '@ng-icons/bootstrap-icons';
 //#endregion
 
 //#region  form
@@ -79,7 +79,7 @@ import { OrdersComponent } from './components/core/orders/orders.component';
 import { StepperComponent } from './components/core/checkout/stepper/stepper.component';
 import { RouterModule } from '@angular/router';
 import { OrderDetailedComponent } from './components/core/orders/order-detailed/order-detailed.component';
-import { cssSpinnerTwo } from '@ng-icons/css.gg';
+import { cssMathMinus, cssMathPlus, cssSpinnerTwo } from '@ng-icons/css.gg';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationComponent } from './components/core/contact/location/location.component';
 //#endregion
@@ -134,7 +134,7 @@ import { LocationComponent } from './components/core/contact/location/location.c
 
     //#region  icon
 
-    NgIconsModule.withIcons({ bootstrapCartCheckFill, bootstrapSunFill, bootstrapMoonStarsFill, bootstrapList,bootstrapTrash3Fill,bootstrapArrowLeftCircleFill,bootstrapArrowRightCircleFill,bootstrapCheckCircle,cssSpinnerTwo,bootstrapCart3 }),
+    NgIconsModule.withIcons({ bootstrapCartCheckFill, bootstrapSunFill, bootstrapMoonStarsFill, bootstrapList,bootstrapTrash3Fill,bootstrapArrowLeftCircleFill,bootstrapArrowRightCircleFill,bootstrapCheckCircle,cssSpinnerTwo,bootstrapCart3,cssMathMinus,cssMathPlus }),
     //#endregion
 
     //#region client model

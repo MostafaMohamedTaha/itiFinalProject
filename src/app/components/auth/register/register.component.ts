@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
 import { Observable, map, of, switchMap, timer } from 'rxjs';
@@ -27,7 +27,10 @@ export class RegisterComponent {
           .pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')],
         [this.validateEmailNotTaken()]
       ],
-      password: [null, Validators.required],
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$'),
+      ]),
       phoneNumber: [null, Validators.required],
     });
   }
@@ -35,7 +38,7 @@ export class RegisterComponent {
   onSubmit() {
     this.accountService.register(this.registerForm.value).subscribe(response => {
       this.router.navigateByUrl('/home');
-    }, error => {
+    }, (error) => {
       console.log(error);
       this.errors = error.errors;
     })

@@ -10,7 +10,7 @@
 
         <span class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" *ngIf="controlDir.control?.hasError('required')">{{label}} is
             required</span>
-        <span class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"  *ngIf="controlDir.control?.hasError('pattern')">Invalid email address</span>
+        <span class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"  *ngIf="controlDir.control?.hasError('pattern')">Invalid Input Please Enter Valid</span>
         <span  class=" text-sm font-medium flex items-center p-4 my-1 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" *ngIf="controlDir.control?.hasError('emailExists')">Email address is in use</span>
     </div>
 </div>

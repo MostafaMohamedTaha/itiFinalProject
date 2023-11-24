@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IAddress } from '../models/address';
 import { IUser } from '../models/user';
@@ -64,14 +64,13 @@ export class AccountService {
 
   login(values: any): Observable<IUser | null> {
     return this.http.post<IUser>(this.baseUrl + 'Account/login', values).pipe(
-      map((user: IUser) => {
+      tap((user: IUser | null) => {
         if (user) {
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
-          return user; // Return the user object
+        } else {
+          this.currentUserSource.next(null);
         }
-        this.currentUserSource.next(null);
-        return null; // Return null explicitly
       }),
       catchError(error => {
         console.error('Error during login:', error);
@@ -80,6 +79,7 @@ export class AccountService {
       })
     );
   }
+  
 
   register(values: any): Observable<IUser | null> {
     return this.http.post<IUser>(this.baseUrl + 'Account/register', values).pipe(
