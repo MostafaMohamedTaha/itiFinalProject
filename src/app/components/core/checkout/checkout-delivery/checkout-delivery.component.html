@@ -1,10 +1,10 @@
 <div class="mt-4" [formGroup]="checkoutForm">
-    <h4 class="mb-3">Choose your delivery method</h4>
-    <div class="row" formGroupName="deliveryForm">
-        <div class="col-6 form-group" *ngFor="let method of deliveryMethods">
-            <input type="radio" id={{method.id}} (click)="setShippingPrice(method)" value={{method.id}} formControlName="deliveryMethod" class="custom-control-input">
-            <label for="{{method.id}}" class="custom-control-label">
-                <strong>{{method?.shortName}} - {{method.cost | currency}}</strong>
+    <h4 class="mb-3 text-center dark:text-white text-3xl hover:scale-125 translate-x-1 ease-in-out decoration-transparent">Choose your delivery method</h4>
+    <div class="" formGroupName="deliveryForm">
+        <div class="" *ngFor="let method of deliveryMethods">
+            <input type="radio" id={{method.id}} (click)="setShippingPrice(method)" value={{method.id}} formControlName="deliveryMethod" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="{{method.id}}" class="ms-2 font-medium text-gray-900 dark:text-gray-300 mx-2 text-2xl">
+                <strong>{{method?.shortName}} - {{method.cost }} L.E</strong>
                 <br />
                 <span class="label-description">{{method.description}}</span>
             </label>

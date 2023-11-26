@@ -1,227 +1,217 @@
 <div [ngClass]="{'dark': darkMode}" [dir]="'dir' |translate">
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a  class="flex items-center">
+            <a class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{'navbar.name' |
                     translate}}</span>
             </a>
-
-            <app-sidebar />
-            <div class="flex items-center md:order-2">
-                <!-- (((((((((((((((start dark => lang))))))))))))))) -->
-                <div class="flex items-center md:order-2">
-                    <div class="flex justify-center">
-                        <!-- ((((((((((((((((dark)))))))))))))))) -->
-                        <button type="button"
-                            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                            (click)="toggleDarkModeClicked()">
-                            <ng-icon *ngIf="!darkMode" name="bootstrapSunFill"></ng-icon>
-                            <ng-icon *ngIf="darkMode" name="bootstrapMoonStarsFill "></ng-icon>
-                        </button>
-                    </div>
-                    <!-- (((((((((((((((lang))))))))))))))) -->
-                    <div class="flex mx-2">
-                        <select id="states"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg mx- border-l-gray-100 dark:border-l-gray-700 border-l-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            (change)="translate($event)">
-                            <option value="en">
-                                <div class="inline-flex items-center">
-                                    <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
-                                        xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
-                                        <g fill-rule="evenodd">
-                                            <g stroke-width="1pt">
-                                                <path fill="#bd3d44"
-                                                    d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-                                                    transform="scale(3.9385)" />
-                                                <path fill="#fff"
-                                                    d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-                                                    transform="scale(3.9385)" />
-                                            </g>
-                                            <path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" />
-                                            <path fill="#fff"
-                                                d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
-                                                transform="scale(3.9385)" />
-                                        </g>
-                                    </svg>
-                                    English (US)
-                                </div>
-                            </option>
-                            <option value="ar">
-                                <div class="inline-flex items-center">
-                                    <svg class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify"
-                                        viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet"
-                                        version="1.0">
-                                        <defs>
-                                            <clipPath id="id1">
-                                                <path
-                                                    d="M 2.429688 4.792969 L 27.105469 4.792969 L 27.105469 22.9375 L 2.429688 22.9375 Z M 2.429688 4.792969 "
-                                                    clip-rule="nonzero" />
-                                            </clipPath>
-                                            <clipPath id="id2">
-                                                <path
-                                                    d="M 2.429688 10 L 27.105469 10 L 27.105469 18 L 2.429688 18 Z M 2.429688 10 "
-                                                    clip-rule="nonzero" />
-                                            </clipPath>
-                                            <clipPath id="id3">
-                                                <path
-                                                    d="M 2.429688 4.792969 L 27.105469 4.792969 L 27.105469 11 L 2.429688 11 Z M 2.429688 4.792969 "
-                                                    clip-rule="nonzero" />
-                                            </clipPath>
-                                        </defs>
-                                        <g clip-path="url(#id1)">
-                                            <path fill="rgb(7.839966%, 7.839966%, 7.839966%)"
-                                                d="M 27.101562 20.144531 C 27.101562 21.6875 25.875 22.9375 24.359375 22.9375 L 5.175781 22.9375 C 3.664062 22.9375 2.4375 21.6875 2.4375 20.144531 L 2.4375 7.582031 C 2.4375 6.042969 3.664062 4.792969 5.175781 4.792969 L 24.359375 4.792969 C 25.875 4.792969 27.101562 6.042969 27.101562 7.582031 Z M 27.101562 20.144531 "
-                                                fill-opacity="1" fill-rule="nonzero" />
-                                        </g>
-                                        <g clip-path="url(#id2)">
-                                            <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
-                                                d="M 2.4375 10.375 L 27.101562 10.375 L 27.101562 17.355469 L 2.4375 17.355469 Z M 2.4375 10.375 "
-                                                fill-opacity="1" fill-rule="nonzero" />
-                                        </g>
-                                        <g clip-path="url(#id3)">
-                                            <path fill="rgb(80.778503%, 7.058716%, 14.509583%)"
-                                                d="M 24.359375 4.792969 L 5.175781 4.792969 C 3.664062 4.792969 2.4375 6.042969 2.4375 7.582031 L 2.4375 10.375 L 27.101562 10.375 L 27.101562 7.582031 C 27.101562 6.042969 25.875 4.792969 24.359375 4.792969 Z M 24.359375 4.792969 "
-                                                fill-opacity="1" fill-rule="nonzero" />
-                                        </g>
-                                        <path fill="rgb(74.899292%, 57.649231%, 0%)"
-                                            d="M 12.542969 16.351562 C 12.542969 16.351562 12.550781 16.523438 12.703125 16.613281 C 12.703125 16.613281 12.660156 16.742188 12.820312 16.820312 C 12.980469 16.894531 13.558594 17.015625 14.566406 17.015625 C 15.570312 17.015625 16.140625 16.90625 16.289062 16.828125 C 16.4375 16.753906 16.449219 16.578125 16.449219 16.578125 C 16.449219 16.578125 16.609375 16.492188 16.597656 16.382812 C 16.589844 16.273438 16.375 16.15625 16.375 16.15625 C 16.375 16.15625 16.320312 16.011719 16.171875 15.957031 C 16.019531 15.902344 15.539062 16.199219 14.617188 16.15625 C 13.699219 16.109375 13.171875 15.96875 13.003906 15.980469 C 12.832031 15.992188 12.757812 16.164062 12.757812 16.164062 C 12.757812 16.164062 12.5625 16.253906 12.542969 16.351562 Z M 12.542969 16.351562 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
-                                            d="M 12.660156 16.339844 C 12.652344 16.40625 12.789062 16.546875 12.789062 16.546875 C 12.789062 16.546875 12.789062 16.710938 12.925781 16.753906 C 13.066406 16.796875 13.632812 16.90625 14.554688 16.894531 C 15.476562 16.886719 16.128906 16.832031 16.203125 16.765625 C 16.277344 16.699219 16.34375 16.558594 16.34375 16.558594 C 16.34375 16.558594 16.492188 16.449219 16.480469 16.363281 C 16.46875 16.273438 16.257812 16.21875 16.257812 16.21875 C 16.257812 16.21875 16.195312 16.089844 16.125 16.035156 C 16.054688 15.980469 15.59375 16.253906 14.609375 16.253906 C 13.644531 16.253906 13.085938 16.011719 12.992188 16.023438 C 12.894531 16.035156 12.832031 16.21875 12.832031 16.21875 C 12.832031 16.21875 12.671875 16.265625 12.660156 16.339844 Z M 12.660156 16.339844 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(74.899292%, 57.649231%, 0%)"
-                                            d="M 16.726562 12.109375 C 16.726562 12.109375 16.707031 11.597656 16.246094 11.660156 C 15.785156 11.726562 15.753906 11.957031 15.261719 12.011719 L 15.160156 12.019531 C 15.085938 11.820312 15.023438 11.535156 15.023438 11.3125 C 15.023438 10.984375 15.121094 10.84375 14.789062 10.679688 C 14.457031 10.515625 14.394531 10.667969 14.394531 10.667969 C 14.394531 10.667969 14.136719 10.539062 14.019531 10.636719 C 13.898438 10.734375 13.964844 10.984375 14.019531 10.910156 C 14.070312 10.832031 14.285156 11.050781 14.285156 11.050781 C 14.359375 11.414062 14.152344 11.804688 14.011719 12.023438 C 13.960938 12.019531 13.921875 12.015625 13.867188 12.011719 C 13.375 11.957031 13.34375 11.726562 12.882812 11.660156 C 12.421875 11.597656 12.402344 12.109375 12.402344 12.109375 L 12.21875 16.066406 L 12.59375 15.773438 L 12.597656 15.726562 L 13.375 15.019531 L 13.507812 14.886719 L 13.183594 15.847656 C 13.183594 15.847656 12.691406 15.816406 12.832031 16.21875 C 12.832031 16.21875 12.90625 15.992188 13.035156 16.035156 C 13.164062 16.078125 13.535156 16.175781 13.535156 16.175781 L 13.664062 16.382812 L 13.824219 16.230469 L 14.328125 16.207031 C 14.328125 16.207031 14.488281 16.25 14.480469 16.394531 C 14.511719 16.316406 14.515625 16.25 14.503906 16.195312 L 14.65625 16.1875 C 14.640625 16.242188 14.644531 16.308594 14.679688 16.394531 C 14.667969 16.253906 14.828125 16.207031 14.828125 16.207031 L 15.332031 16.230469 L 15.492188 16.382812 L 15.621094 16.175781 C 15.621094 16.175781 15.996094 16.078125 16.125 16.035156 C 16.25 15.992188 16.328125 16.21875 16.328125 16.21875 C 16.464844 15.816406 15.972656 15.847656 15.972656 15.847656 L 15.664062 14.933594 L 15.753906 15.019531 L 16.53125 15.726562 L 16.535156 15.773438 L 16.910156 16.066406 Z M 14.597656 14.507812 C 13.828125 14.023438 13.761719 12.796875 13.761719 12.796875 C 13.761719 12.796875 14.238281 12.769531 14.585938 12.523438 C 14.898438 12.804688 15.433594 12.773438 15.433594 12.773438 C 15.433594 12.773438 15.394531 14.003906 14.597656 14.507812 Z M 16.363281 11.957031 L 15.710938 12.589844 L 15.601562 12.632812 C 15.488281 12.636719 14.941406 12.640625 14.597656 12.328125 C 14.167969 12.632812 13.582031 12.65625 13.582031 12.65625 L 13.488281 12.617188 L 12.765625 11.957031 L 12.578125 12.035156 C 12.585938 11.957031 12.628906 11.78125 12.863281 11.816406 C 13.25 11.871094 13.410156 12.085938 13.816406 12.132812 L 13.929688 12.144531 L 13.890625 12.195312 C 13.953125 12.195312 14.046875 12.175781 14.117188 12.160156 L 14.191406 12.167969 L 14.15625 12.292969 C 14.210938 12.277344 14.292969 12.230469 14.355469 12.1875 L 14.535156 12.203125 L 14.574219 12.261719 L 14.710938 12.191406 L 14.800781 12.183594 C 14.882812 12.230469 14.992188 12.269531 14.992188 12.269531 L 15.015625 12.164062 C 15.113281 12.226562 15.273438 12.226562 15.273438 12.226562 C 15.253906 12.210938 15.234375 12.171875 15.214844 12.140625 L 15.316406 12.128906 C 15.722656 12.085938 15.878906 11.871094 16.265625 11.8125 C 16.503906 11.78125 16.546875 11.957031 16.554688 12.035156 Z M 16.363281 11.957031 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
-                                            d="M 14.339844 14.488281 L 13.953125 15.980469 L 13.3125 15.847656 L 13.976562 13.929688 Z M 14.820312 14.488281 L 15.203125 15.980469 L 15.847656 15.847656 L 15.183594 13.929688 Z M 14.820312 14.488281 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(74.899292%, 57.649231%, 0%)"
-                                            d="M 13.921875 12.917969 C 13.921875 12.917969 13.976562 13.546875 14.253906 14.039062 L 14.253906 12.773438 C 14.253906 12.773438 14.074219 12.882812 13.921875 12.917969 Z M 15.261719 12.9375 C 15.261719 12.9375 15.207031 13.570312 14.929688 14.0625 L 14.929688 12.796875 C 14.929688 12.796875 15.109375 12.90625 15.261719 12.9375 Z M 15.261719 12.9375 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
-                                            d="M 14.050781 10.777344 C 14.050781 10.777344 14.125 10.703125 14.339844 10.855469 C 14.480469 10.953125 14.601562 11.027344 14.601562 11.027344 C 14.601562 11.027344 14.691406 10.933594 14.820312 10.957031 C 14.949219 10.976562 14.875 11.160156 14.898438 11.542969 C 14.917969 11.921875 15.070312 12.085938 15.070312 12.085938 L 14.886719 11.976562 L 14.898438 12.097656 L 14.695312 12 L 14.597656 12.140625 L 14.5 11.988281 L 14.34375 12.085938 L 14.296875 11.957031 L 14.113281 12.054688 C 14.113281 12.054688 14.382812 11.714844 14.402344 11.34375 C 14.410156 11.234375 14.382812 10.984375 14.382812 10.984375 C 14.382812 10.984375 14.210938 10.765625 14.050781 10.777344 Z M 14.050781 10.777344 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                        <path fill="rgb(74.899292%, 57.649231%, 0%)"
-                                            d="M 13.085938 16.417969 C 12.964844 16.492188 13.011719 16.535156 13.085938 16.570312 C 13.164062 16.601562 13.613281 16.65625 14.523438 16.679688 C 15.453125 16.699219 16.03125 16.589844 16.105469 16.546875 C 16.179688 16.503906 16.191406 16.425781 16.0625 16.40625 C 15.933594 16.382812 15.292969 16.492188 14.511719 16.492188 C 13.546875 16.492188 13.140625 16.382812 13.085938 16.417969 Z M 13.085938 16.417969 "
-                                            fill-opacity="1" fill-rule="nonzero" />
-                                    </svg>
-                                    العربية
-                                </div>
-                            </option>
-
-                        </select>
-                    </div>
-                </div>
-                <!-- (((((((((((((((end dark => lang))))))))))))))) -->
-
-
-
-                <!-- (((((((((((start dropdown))))))))))) -->
-
-                <!-- (((((((((((start login))))))))))) -->
-                <ng-container *ngIf="(currentUser$ | async) === null">
-                    <div>
-                        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mx-2"
-                            [routerLink]="['/login']" >{{'navbar.sign in' |
-                            translate}}</button>
-                    </div>
-                    <div>
-                        <button class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
-                            [routerLink]="['/register']" >{{'navbar.register' |
-                            translate}}</button>
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="(currentUser$ | async) as user">
-                    <button type="button"
-                        class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-                        data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="https://picsum.photos/500/500" alt="user photo">
-                    </button>
-                    <span>Welcome {{(currentUser$ | async)?.displayName}}</span>
-                    <!-- Dropdown menu -->
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                        id="user-dropdown">
-                        <div class="px-4 py-3">
-                            <span class="block text-sm text-gray-900 dark:text-white">{{(currentUser$ | async)?.displayName}}</span>
-                        </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
-                            <li>
-                                <a [routerLink]="['/cart']"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon name="bootstrapCartCheckFill"></ng-icon> View Basket</a>
-                            </li>
-                            <li>
-                                <a [routerLink]="['/orders']"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon name="bootstrapCart3"></ng-icon> View Orders</a>
-                            </li>
-                            <li>
-                                <a (click)="logout()"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon name="bootstrapArrowLeftCircleFill"></ng-icon> Logout</a>
-                            </li>
-        
-                        </ul>
-                    </div>
-                </ng-container>
-                <!-- (((((((((((end login))))))))))) -->
-                <button data-collapse-toggle="navbar-user" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-user" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-                <!-- (((((((((((start dropdown))))))))))) -->
-                <button type="button"
-                class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3"
-                [routerLink]="['/cart']">
-                <ng-icon class="w-5 h-5" name="bootstrapCartCheckFill"></ng-icon>
-                <span class="sr-only">Notifications</span>
-                <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
-                    *ngIf="(basket$ | async) as basket">
-                    {{basket.items.length}}</div>
+            <button data-collapse-toggle="navbar-user" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-user" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
             </button>
-            </div>
-
-            <!-- ((((((((((start navbar)))))))))) -->
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
                 <ul
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <a class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mx-3"
-                            aria-current="page" [routerLink]="['']" [routerLinkActive]="['text-blue-500']"
+                            aria-current="page" [routerLink]="['']" routerLinkActive="font-bold text-xl text-gray-600"
                             [routerLinkActiveOptions]="{exact:true}">{{'navbar.home' | translate}}</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            [routerLink]="['/products']" [routerLinkActive]="'text-blue-500'">{{'navbar.products' |
+                        <a class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                            [routerLink]="['/products']" routerLinkActive="font-bold text-xl text-gray-600">{{'navbar.products' |
                             translate}}</a>
                     </li>
                     <li>
                         <a class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            [routerLink]="['/contact']" [routerLinkActive]="'text-blue-500'">{{'navbar.contacts' |
+                            [routerLink]="['/contact']" routerLinkActive="font-bold text-xl text-gray-600">{{'navbar.contacts' |
                             translate}}
                         </a>
                     </li>
                     <li>
                         <a class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            [routerLink]="['/cart']" [routerLinkActive]="'text-blue-500'">
+                            [routerLink]="['/cart']" routerLinkActive="font-bold text-xl text-gray-600">
                             {{'navbar.prices' | translate}}</a>
                     </li>
 
                 </ul>
+                <div class="grid justify-center lg:flex items-center md:order-2">
+                    <div class="flex mb-1 items-center md:order-2">
+                        <div class="flex mx-2">
+                            <select id="states"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg mx- border-l-gray-100 dark:border-l-gray-700 border-l-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                (change)="translate($event)">
+                                <option value="en">
+                                    <div class="inline-flex items-center">
+                                        <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
+                                            xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
+                                            <g fill-rule="evenodd">
+                                                <g stroke-width="1pt">
+                                                    <path fill="#bd3d44"
+                                                        d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                                        transform="scale(3.9385)" />
+                                                    <path fill="#fff"
+                                                        d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                                        transform="scale(3.9385)" />
+                                                </g>
+                                                <path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" />
+                                                <path fill="#fff"
+                                                    d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                                                    transform="scale(3.9385)" />
+                                            </g>
+                                        </svg>
+                                        English (US)
+                                    </div>
+                                </option>
+                                <option value="ar">
+                                    <div class="inline-flex items-center">
+                                        <svg class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify"
+                                            viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet"
+                                            version="1.0">
+                                            <defs>
+                                                <clipPath id="id1">
+                                                    <path
+                                                        d="M 2.429688 4.792969 L 27.105469 4.792969 L 27.105469 22.9375 L 2.429688 22.9375 Z M 2.429688 4.792969 "
+                                                        clip-rule="nonzero" />
+                                                </clipPath>
+                                                <clipPath id="id2">
+                                                    <path
+                                                        d="M 2.429688 10 L 27.105469 10 L 27.105469 18 L 2.429688 18 Z M 2.429688 10 "
+                                                        clip-rule="nonzero" />
+                                                </clipPath>
+                                                <clipPath id="id3">
+                                                    <path
+                                                        d="M 2.429688 4.792969 L 27.105469 4.792969 L 27.105469 11 L 2.429688 11 Z M 2.429688 4.792969 "
+                                                        clip-rule="nonzero" />
+                                                </clipPath>
+                                            </defs>
+                                            <g clip-path="url(#id1)">
+                                                <path fill="rgb(7.839966%, 7.839966%, 7.839966%)"
+                                                    d="M 27.101562 20.144531 C 27.101562 21.6875 25.875 22.9375 24.359375 22.9375 L 5.175781 22.9375 C 3.664062 22.9375 2.4375 21.6875 2.4375 20.144531 L 2.4375 7.582031 C 2.4375 6.042969 3.664062 4.792969 5.175781 4.792969 L 24.359375 4.792969 C 25.875 4.792969 27.101562 6.042969 27.101562 7.582031 Z M 27.101562 20.144531 "
+                                                    fill-opacity="1" fill-rule="nonzero" />
+                                            </g>
+                                            <g clip-path="url(#id2)">
+                                                <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
+                                                    d="M 2.4375 10.375 L 27.101562 10.375 L 27.101562 17.355469 L 2.4375 17.355469 Z M 2.4375 10.375 "
+                                                    fill-opacity="1" fill-rule="nonzero" />
+                                            </g>
+                                            <g clip-path="url(#id3)">
+                                                <path fill="rgb(80.778503%, 7.058716%, 14.509583%)"
+                                                    d="M 24.359375 4.792969 L 5.175781 4.792969 C 3.664062 4.792969 2.4375 6.042969 2.4375 7.582031 L 2.4375 10.375 L 27.101562 10.375 L 27.101562 7.582031 C 27.101562 6.042969 25.875 4.792969 24.359375 4.792969 Z M 24.359375 4.792969 "
+                                                    fill-opacity="1" fill-rule="nonzero" />
+                                            </g>
+                                            <path fill="rgb(74.899292%, 57.649231%, 0%)"
+                                                d="M 12.542969 16.351562 C 12.542969 16.351562 12.550781 16.523438 12.703125 16.613281 C 12.703125 16.613281 12.660156 16.742188 12.820312 16.820312 C 12.980469 16.894531 13.558594 17.015625 14.566406 17.015625 C 15.570312 17.015625 16.140625 16.90625 16.289062 16.828125 C 16.4375 16.753906 16.449219 16.578125 16.449219 16.578125 C 16.449219 16.578125 16.609375 16.492188 16.597656 16.382812 C 16.589844 16.273438 16.375 16.15625 16.375 16.15625 C 16.375 16.15625 16.320312 16.011719 16.171875 15.957031 C 16.019531 15.902344 15.539062 16.199219 14.617188 16.15625 C 13.699219 16.109375 13.171875 15.96875 13.003906 15.980469 C 12.832031 15.992188 12.757812 16.164062 12.757812 16.164062 C 12.757812 16.164062 12.5625 16.253906 12.542969 16.351562 Z M 12.542969 16.351562 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
+                                                d="M 12.660156 16.339844 C 12.652344 16.40625 12.789062 16.546875 12.789062 16.546875 C 12.789062 16.546875 12.789062 16.710938 12.925781 16.753906 C 13.066406 16.796875 13.632812 16.90625 14.554688 16.894531 C 15.476562 16.886719 16.128906 16.832031 16.203125 16.765625 C 16.277344 16.699219 16.34375 16.558594 16.34375 16.558594 C 16.34375 16.558594 16.492188 16.449219 16.480469 16.363281 C 16.46875 16.273438 16.257812 16.21875 16.257812 16.21875 C 16.257812 16.21875 16.195312 16.089844 16.125 16.035156 C 16.054688 15.980469 15.59375 16.253906 14.609375 16.253906 C 13.644531 16.253906 13.085938 16.011719 12.992188 16.023438 C 12.894531 16.035156 12.832031 16.21875 12.832031 16.21875 C 12.832031 16.21875 12.671875 16.265625 12.660156 16.339844 Z M 12.660156 16.339844 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(74.899292%, 57.649231%, 0%)"
+                                                d="M 16.726562 12.109375 C 16.726562 12.109375 16.707031 11.597656 16.246094 11.660156 C 15.785156 11.726562 15.753906 11.957031 15.261719 12.011719 L 15.160156 12.019531 C 15.085938 11.820312 15.023438 11.535156 15.023438 11.3125 C 15.023438 10.984375 15.121094 10.84375 14.789062 10.679688 C 14.457031 10.515625 14.394531 10.667969 14.394531 10.667969 C 14.394531 10.667969 14.136719 10.539062 14.019531 10.636719 C 13.898438 10.734375 13.964844 10.984375 14.019531 10.910156 C 14.070312 10.832031 14.285156 11.050781 14.285156 11.050781 C 14.359375 11.414062 14.152344 11.804688 14.011719 12.023438 C 13.960938 12.019531 13.921875 12.015625 13.867188 12.011719 C 13.375 11.957031 13.34375 11.726562 12.882812 11.660156 C 12.421875 11.597656 12.402344 12.109375 12.402344 12.109375 L 12.21875 16.066406 L 12.59375 15.773438 L 12.597656 15.726562 L 13.375 15.019531 L 13.507812 14.886719 L 13.183594 15.847656 C 13.183594 15.847656 12.691406 15.816406 12.832031 16.21875 C 12.832031 16.21875 12.90625 15.992188 13.035156 16.035156 C 13.164062 16.078125 13.535156 16.175781 13.535156 16.175781 L 13.664062 16.382812 L 13.824219 16.230469 L 14.328125 16.207031 C 14.328125 16.207031 14.488281 16.25 14.480469 16.394531 C 14.511719 16.316406 14.515625 16.25 14.503906 16.195312 L 14.65625 16.1875 C 14.640625 16.242188 14.644531 16.308594 14.679688 16.394531 C 14.667969 16.253906 14.828125 16.207031 14.828125 16.207031 L 15.332031 16.230469 L 15.492188 16.382812 L 15.621094 16.175781 C 15.621094 16.175781 15.996094 16.078125 16.125 16.035156 C 16.25 15.992188 16.328125 16.21875 16.328125 16.21875 C 16.464844 15.816406 15.972656 15.847656 15.972656 15.847656 L 15.664062 14.933594 L 15.753906 15.019531 L 16.53125 15.726562 L 16.535156 15.773438 L 16.910156 16.066406 Z M 14.597656 14.507812 C 13.828125 14.023438 13.761719 12.796875 13.761719 12.796875 C 13.761719 12.796875 14.238281 12.769531 14.585938 12.523438 C 14.898438 12.804688 15.433594 12.773438 15.433594 12.773438 C 15.433594 12.773438 15.394531 14.003906 14.597656 14.507812 Z M 16.363281 11.957031 L 15.710938 12.589844 L 15.601562 12.632812 C 15.488281 12.636719 14.941406 12.640625 14.597656 12.328125 C 14.167969 12.632812 13.582031 12.65625 13.582031 12.65625 L 13.488281 12.617188 L 12.765625 11.957031 L 12.578125 12.035156 C 12.585938 11.957031 12.628906 11.78125 12.863281 11.816406 C 13.25 11.871094 13.410156 12.085938 13.816406 12.132812 L 13.929688 12.144531 L 13.890625 12.195312 C 13.953125 12.195312 14.046875 12.175781 14.117188 12.160156 L 14.191406 12.167969 L 14.15625 12.292969 C 14.210938 12.277344 14.292969 12.230469 14.355469 12.1875 L 14.535156 12.203125 L 14.574219 12.261719 L 14.710938 12.191406 L 14.800781 12.183594 C 14.882812 12.230469 14.992188 12.269531 14.992188 12.269531 L 15.015625 12.164062 C 15.113281 12.226562 15.273438 12.226562 15.273438 12.226562 C 15.253906 12.210938 15.234375 12.171875 15.214844 12.140625 L 15.316406 12.128906 C 15.722656 12.085938 15.878906 11.871094 16.265625 11.8125 C 16.503906 11.78125 16.546875 11.957031 16.554688 12.035156 Z M 16.363281 11.957031 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
+                                                d="M 14.339844 14.488281 L 13.953125 15.980469 L 13.3125 15.847656 L 13.976562 13.929688 Z M 14.820312 14.488281 L 15.203125 15.980469 L 15.847656 15.847656 L 15.183594 13.929688 Z M 14.820312 14.488281 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(74.899292%, 57.649231%, 0%)"
+                                                d="M 13.921875 12.917969 C 13.921875 12.917969 13.976562 13.546875 14.253906 14.039062 L 14.253906 12.773438 C 14.253906 12.773438 14.074219 12.882812 13.921875 12.917969 Z M 15.261719 12.9375 C 15.261719 12.9375 15.207031 13.570312 14.929688 14.0625 L 14.929688 12.796875 C 14.929688 12.796875 15.109375 12.90625 15.261719 12.9375 Z M 15.261719 12.9375 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(93.328857%, 93.328857%, 93.328857%)"
+                                                d="M 14.050781 10.777344 C 14.050781 10.777344 14.125 10.703125 14.339844 10.855469 C 14.480469 10.953125 14.601562 11.027344 14.601562 11.027344 C 14.601562 11.027344 14.691406 10.933594 14.820312 10.957031 C 14.949219 10.976562 14.875 11.160156 14.898438 11.542969 C 14.917969 11.921875 15.070312 12.085938 15.070312 12.085938 L 14.886719 11.976562 L 14.898438 12.097656 L 14.695312 12 L 14.597656 12.140625 L 14.5 11.988281 L 14.34375 12.085938 L 14.296875 11.957031 L 14.113281 12.054688 C 14.113281 12.054688 14.382812 11.714844 14.402344 11.34375 C 14.410156 11.234375 14.382812 10.984375 14.382812 10.984375 C 14.382812 10.984375 14.210938 10.765625 14.050781 10.777344 Z M 14.050781 10.777344 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                            <path fill="rgb(74.899292%, 57.649231%, 0%)"
+                                                d="M 13.085938 16.417969 C 12.964844 16.492188 13.011719 16.535156 13.085938 16.570312 C 13.164062 16.601562 13.613281 16.65625 14.523438 16.679688 C 15.453125 16.699219 16.03125 16.589844 16.105469 16.546875 C 16.179688 16.503906 16.191406 16.425781 16.0625 16.40625 C 15.933594 16.382812 15.292969 16.492188 14.511719 16.492188 C 13.546875 16.492188 13.140625 16.382812 13.085938 16.417969 Z M 13.085938 16.417969 "
+                                                fill-opacity="1" fill-rule="nonzero" />
+                                        </svg>
+                                        العربية
+                                    </div>
+                                </option>
+    
+                            </select>
+                        </div>
+                        <ng-container class="grid lg:flex" *ngIf="(currentUser$ | async) === null">
+                            <div>
+                                <button
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mx-2"
+                                    [routerLink]="(currentUser$ | async)?['/home']:['/login']">
+                                    {{ 'navbar.sign in' | translate }}
+                                </button>
+                            </div>
+                            <div>
+                                <button
+                                    class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
+                                    [routerLink]="['/register']">{{'navbar.register' |
+                                    translate}}</button>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="(currentUser$ | async)">
+                            <button type="button"
+                                class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                                data-dropdown-placement="bottom">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="w-8 h-8 rounded-full" src="https://picsum.photos/500/500" alt="user photo">
+                            </button>
+                            <span class="dark:text-white mx-1">Welcome {{(currentUser$ | async)?.displayName}}</span>
+                            <!-- Dropdown menu -->
+                            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                                id="user-dropdown">
+                                <div class="px-4 py-3">
+                                    <span class="block text-sm text-gray-900 dark:text-white">{{(currentUser$ |
+                                        async)?.displayName}}</span>
+                                </div>
+                                <ul class="py-2" aria-labelledby="user-menu-button">
+                                    <li>
+                                        <a [routerLink]="['/cart']"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon
+                                                name="bootstrapCartCheckFill"></ng-icon> View Basket</a>
+                                    </li>
+                                    <li>
+                                        <a [routerLink]="['/orders']"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon
+                                                name="bootstrapCart3"></ng-icon> View Orders</a>
+                                    </li>
+                                    <li>
+                                        <a (click)="logout()"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ng-icon
+                                                name="bootstrapArrowLeftCircleFill"></ng-icon> Logout</a>
+                                    </li>
+        
+                                </ul>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="flex justify-center items-center md:order-2">
+
+                        <button type="button"
+                            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3"
+                            [routerLink]="['/cart']">
+                            <ng-icon class="w-5 h-5" name="bootstrapCartCheckFill"></ng-icon>
+                            <span class="sr-only">Notifications</span>
+                            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
+                                *ngIf="(basket$ | async) as basket">
+                                {{basket.items.length}}</div>
+                        </button>
+                        <div class="flex justify-center">
+    
+                            <button type="button"
+                                class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                (click)="toggleDarkModeClicked()">
+                                <ng-icon *ngIf="!darkMode" name="bootstrapSunFill"></ng-icon>
+                                <ng-icon *ngIf="darkMode" name="bootstrapMoonStarsFill "></ng-icon>
+                            </button>
+                        </div>
+                        <app-sidebar class="mx-3"/>
+
+                    </div>
+                </div>
             </div>
-
-            <!-- ((((((((((start navbar)))))))))) -->
-
         </div>
     </nav>
 </div>
-
-
-

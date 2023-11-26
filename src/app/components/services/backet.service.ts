@@ -19,13 +19,13 @@ export class BasketService {
 
   basket$ = this.basketSource.asObservable();
   basketTotal$ = this.basketTotalSource.asObservable();
-  shipping: number|undefined =0;
+  shipping: number | undefined = 0;
 
   constructor(private http: HttpClient) {
     this.basketSource.next(this.createBasket());
   }
   //#endregion
-  
+
   //#region  payment
 
   createPaymentIntent(): Observable<unknown> {
@@ -45,7 +45,7 @@ export class BasketService {
     throw new Error('Method not implemented.');
   }
   //#endregion
-  
+
   //#region  ship delivery
 
   setShippingPrice(deliveryMethod: IDeliveryMethod) {
@@ -59,7 +59,7 @@ export class BasketService {
     }
   }
   //#endregion
-  
+
   //#region  set |get basket
 
   getBasket(id: string) {
@@ -174,7 +174,7 @@ export class BasketService {
     if (basket) {
       const shipping = this.shipping as number;
       const subtotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-      if (shipping >=0 ) {
+      if (shipping >= 0) {
         const total = subtotal + shipping;
         this.basketTotalSource.next({ shipping, total, subtotal });
       }
@@ -195,7 +195,7 @@ export class BasketService {
     return items;
   }
   //#endregion
-  
+
   //#region  map items
 
   private mapProductItemToBasketItem(item: IProduct, quantity: number): IBasketItem {
@@ -208,6 +208,42 @@ export class BasketService {
       brand: item.productBrand,
       type: item.productType
     };
+  }
+  //#endregion
+
+  
+  //#region update quantity 
+  updateQuantityInDatabase(basket: IBasket): Observable<IBasket> {
+    const endpoint = `${this.baseUrl}Basket/updateQuantity`; // Replace with your actual update endpoint
+    return this.http.post<IBasket>(endpoint, basket).pipe(
+      map((response: IBasket) => {
+        this.basketSource.next(response);
+        this.calculateTotals();
+        return response;
+      }),
+      catchError((error) => {
+        console.error('Error updating quantity in the database:', error);
+        // Handle the error appropriately, e.g., display an error message
+        throw error;
+      })
+    );
+  }
+  //#endregion
+  
+  //#region quantity enough 
+  isQuantityEnough(basket: IBasket | null): Observable<boolean> {
+    if (!basket) {
+      return new Observable<boolean>(observer => observer.next(false));
+    }
+
+    const endpoint = `${this.baseUrl}Basket/isQuantityEnough`; // Replace with your actual endpoint
+    return this.http.post<boolean>(endpoint, basket).pipe(
+      catchError((error) => {
+        console.error('Error checking if quantity is enough:', error);
+        // Handle the error appropriately, e.g., display an error message
+        throw error;
+      })
+    );
   }
   //#endregion
 

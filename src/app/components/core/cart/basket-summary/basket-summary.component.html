@@ -41,7 +41,7 @@
           </td>
           <td >
             <div [class.justify-content-center]="!isBasket">
-              <button
+              <button [disabled]="item.quantity==1"
                 class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 type="button" *ngIf="isBasket" (click)="decrementItemQuantity(item)">
                 <span class="sr-only">Quantity button</span>
@@ -52,9 +52,9 @@
                 </svg>
               </button>
               <span class="mx-3" >{{item.quantity}}</span>
-              <button
+              <button 
                 class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                type="button" *ngIf="isBasket" (click)="incrementItemQuantity(item)">
+                type="button" *ngIf="isBasket && item.quantity<10" (click)="incrementItemQuantity(item)">
                 <span class="sr-only">Quantity button</span>
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                   viewBox="0 0 18 18">
@@ -65,7 +65,7 @@
             </div>
           </td>
           <td class="align-middle">
-            <strong>{{(item.price * item.quantity)}} L.E</strong>
+            <strong>{{(item.price * item.quantity)}} L.E </strong>
           </td>
           <td class="align-middle text-center">
             <a class="text-danger" *ngIf="isBasket" (click)="removeBasketItem(item)">

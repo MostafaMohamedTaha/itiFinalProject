@@ -1,25 +1,130 @@
+<div class="grid justify-center">
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-hover" style="cursor: pointer;">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Order</th>
-                        <th>Date</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let order of orders" [routerLink]="['/orders/{{order.id}}']">
-                        <th># {{order.id}}</th>
-                        <td>{{order.orderDate}}</td>
-                        <td>{{order.total }}</td>
-                        <td>{{order.status}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg  md:w-[1000px]">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Order Date
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Total Price
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        items picture
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    [routerLink]="['/orders/{{order.id}}']">
+                    <td class="px-6 py-4 text-xl font-bold">
+                        {{orders[0].orderDate}}
+                    </td>
+                    <td class="px-6 py-4 text-3xl font-bold">
+                         {{orders[0].total }} L.E
+                    </td>
+                    <td class="px-6 py-4 grid justify-center">
+                        <img src="{{orders[0].items[0].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1">Item Price :
+                            {{orders[0].items[0].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1">Item Quantity :
+                            {{orders[0].items[0].quantity }}
+                        </div>
+                        <img *ngIf="orders[0].items[1]" src="{{orders[0].items[1].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[1]">
+                            Item Price : {{orders[0].items[1].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[1]">Item Quantity :
+                            {{orders[0].items[1].quantity }}
+                        </div>
+                        <img *ngIf="orders[0].items[2]" src="{{orders[0].items[2].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[2]">
+                            Item Price : {{orders[0].items[2].price }} L.E
+                        </div> 
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[2]">Item Quantity :
+                            {{orders[0].items[2].quantity }}
+                        </div>
+                        <img *ngIf="orders[0].items[3]" src="{{orders[0].items[3].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[3]">
+                            Item Price : {{orders[0].items[3].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[0].items[3]">Item Quantity :
+                            {{orders[0].items[3].quantity }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 text-xl font-bold">
+                        {{orders[1].orderDate}}
+                    </td>
+                    <td class="px-6 py-4 text-3xl font-bold">
+                         {{orders[1].total }} L.E
+                    </td>
+                    <td class="px-6 py-4 grid justify-center">
+                        <img src="{{orders[1].items[0].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1">Item Price :
+                            {{orders[1].items[0].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1">Item Quantity :
+                            {{orders[1].items[0].quantity }}
+                        </div>
+
+                        <img *ngIf="orders[1].items[1]" src="{{orders[1].items[1].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[1]">
+                            Item Price : {{orders[1].items[1].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[1]">Item Quantity :
+                            {{orders[1].items[1].quantity }}
+                        </div>
+                        <img *ngIf="orders[1].items[2]" src="{{orders[1].items[2].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[2]">
+                            Item Price : {{orders[1].items[2].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[2]">Item Quantity :
+                            {{orders[1].items[2].quantity }}
+                        </div>
+                        <img *ngIf="orders[1].items[3]" src="{{orders[1].items[3].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[3]">
+                            Item Price : {{orders[1].items[3].price }} L.E
+                        </div>
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="orders[1].items[3]">Item Quantity :
+                            {{orders[1].items[3].quantity }}
+                        </div>
+                    </td>
+
+                </tr>
+                <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    *ngFor="let order of orders" [routerLink]="['/orders/{{order.id}}']">
+                    <td class="px-6 py-4">
+                        {{order.orderDate}}
+                    </td>
+                    <td class="px-6 py-4">
+                         {{order.total }} L.E
+                    </td>
+                    <td class="px-6 py-4 grid justify-center">
+                        <img src="{{order.items[0].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1">Item Price : {{order.items[0].price }}</div> L.E
+
+                        <img *ngIf="order.items[1]" src="{{order.items[1].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="order.items[1]">
+                            Item Price : {{order.items[1].price }}</div> L.E
+
+                        <img *ngIf="order.items[2]" src="{{order.items[2].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="order.items[2]">
+                            Item Price : {{order.items[2].price }}</div> L.E
+
+                        <img *ngIf="order.items[3]" src="{{order.items[3].pictureUrl }}" alt="">
+                        <div class="grid justify-center text-gray-600 text-2xl my-1" *ngIf="order.items[3]">
+                            Item Price : {{order.items[3].price }}</div> L.E
+
+                    </td>
+
+                </tr> -->
+
+            </tbody>
+        </table>
     </div>
 </div>

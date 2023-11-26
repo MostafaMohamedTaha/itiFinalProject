@@ -1,5 +1,4 @@
 <div class="grid justify-center m-4">
-    <!-- ((((((((((((start reviews)))))))))))) -->
 
     <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2">
         <figure
@@ -68,12 +67,11 @@
         </figure>
     </div>
 
-    <!-- ((((((((((((end reviews)))))))))))) -->
-    <!-- ((((((((((((start address)))))))))))) -->
+
     <div class="grid md:grid-cols-2 grid-cols-1 justify-center gap-4">
         <div class="col-span-1">
 
-            <a href="#"
+            <a [routerLink]="['/location']"
                 class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
                     src="http://picsum.photos/500/600" alt="">
@@ -88,10 +86,12 @@
         </div>
         <div class="col-span-1 text-3xl dark:text-white uppercase" >
             {{'contact.location' | translate}}
+            <div class="grid justify-center">
+                <app-location class="mx-2 my-4"></app-location>
+            </div>
         </div>
     </div>
-    <!-- ((((((((((((end address)))))))))))) -->
-    <!-- ((((((((((((start login)))))))))))) -->
+
 <app-login />
-    <!-- ((((((((((((end login)))))))))))) -->
+    
 </div>
